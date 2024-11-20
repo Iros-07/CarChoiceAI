@@ -1,3 +1,24 @@
+/* Сброс отступов страницы */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Стили для шапки */
+header {
+  position: fixed; /* Закрепляем логотип */
+  top: 0; /* Расположение сверху */
+  left: 0; /* Расположение слева */
+  padding: 10px; /* Отступы вокруг логотипа */
+  background-color: transparent; /* Фон, если нужно */
+}
+
+/* Стили для логотипа */
+.logo {
+  width: 30px; /* Задайте ширину логотипа */
+  height: 30px; /* Автоматическая высота для сохранения пропорций */
+}
+
 /* Общие стили для страницы */
 body {
   display: flex;
@@ -21,10 +42,14 @@ h1 {
 h1::after {
   content: "";
   display: block;
-  width: 100%; /* Ширина линии, можно менять */
-  height: 2px; /* Толщина линии */
-  background: #000; /* Цвет линии */
-  margin: 10px auto 0; /* Отступ сверху */
+  width: 100%;
+  /* Ширина линии, можно менять */
+  height: 2px;
+  /* Толщина линии */
+  background: #000;
+  /* Цвет линии */
+  margin: 5px auto 0;
+  /* Отступ сверху */
 }
 
 /* Базовые стили для светлой и темной темы */
@@ -46,10 +71,14 @@ body.dark-theme {
 
 /* Стили для переключателя темы */
 .theme-switcher {
-  position: fixed; /* Закрепляем кнопку */
-  top: 15px;       /* Отступ сверху */
-  right: 20px;     /* Отступ справа */
-  z-index: 1000;   /* Поверх остальных элементов */
+  position: fixed;
+  /* Закрепляем кнопку */
+  top: 15px;
+  /* Отступ сверху */
+  right: 20px;
+  /* Отступ справа */
+  z-index: 1000;
+  /* Поверх остальных элементов */
 }
 
 #theme-toggle {
@@ -72,7 +101,8 @@ body.dark-theme {
 
 /* Иконки переключателя */
 #theme-toggle .icon {
-  display: none; /* Скрываем иконки по умолчанию */
+  display: none;
+  /* Скрываем иконки по умолчанию */
   transition: opacity 0.3s;
 }
 
@@ -85,5 +115,122 @@ body.light-theme #theme-toggle .sun {
 body.dark-theme #theme-toggle .moon {
   display: inline;
 }
+/* Общие стили */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+    background-color: #f5f5f5;
+}
 
-  
+/* Кнопка выпадающего меню */
+.dropdown-btn {
+    padding: 15px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #000000;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-btn:hover {
+    background-color: #5d6166;
+}
+
+/* Обёртка выпадающего меню */
+.dropdown {
+    position: relative;
+    width: 250px;
+}
+
+/* Стили для выпадающего меню */
+.dropdown-menu {
+    display: none; /* Скрываем меню по умолчанию */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    padding: 10px 0;
+    margin: 15px 0 0;
+    z-index: 1000;
+    max-height: 200px;
+    overflow-y: auto; /* Прокрутка, если список длинный */
+}
+
+.dropdown.open .dropdown-menu {
+    display: block; /* Показываем меню */
+}
+
+/* Элементы списка */
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    cursor: pointer;
+    position: relative;
+}
+
+.dropdown-item:hover {
+    background-color: #f0f0f0;
+}
+
+/* Радиокнопки */
+.dropdown-item input[type="radio"] {
+    display: none; /* Скрываем стандартное отображение */
+}
+
+.dropdown-item label {
+    flex: 1;
+    margin: 0;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Галочка (стилизованный чекмарк) */
+.dropdown-item .checkmark {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    display: inline-block;
+    margin-left: 10px;
+    position: relative;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.dropdown-item input[type="radio"]:checked + label + .checkmark {
+    background-color: #000000;
+    border-color: #000000;
+}
+
+.dropdown-item input[type="radio"]:checked + label + .checkmark::after {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    border-radius: 100%;
+}
+/* Центрирование кнопки слева */
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 50vh;
+  padding-left: 20px;
+}
+

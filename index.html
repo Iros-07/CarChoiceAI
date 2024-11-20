@@ -1,22 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CarChoiceAI</title>
-    <link rel="website icon" type="png"
-        href="LOGO.png">
-    <link id="theme-stylesheet" rel="stylesheet" href="light-theme.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CarChoiceAI</title>
+  <link rel="website icon" type="png" href="LOGO.png">
+  <link id="theme-stylesheet" rel="stylesheet" href="light-theme.css">
 </head>
+
 <body class="light-theme">
-  <img src="LOGO-round.png" width="60px" height="60px" alt="">
+  <header><img src="LOGO-round.png" alt=""></header>
   <h1>CarChoiceAI</h1>
-    <div class="theme-switcher">
-      <button id="theme-toggle" aria-label="Toggle theme">
-        <span class="icon sun">☀️</span>
-        <span class="icon moon">🌙</span>
-      </button>
+  <div class="theme-switcher">
+    <button id="theme-toggle" aria-label="Toggle theme">
+      <span class="icon sun">☀️</span>
+      <span class="icon moon">🌙</span>
+    </button>
+  </div>
+  <div class="container">
+    <!-- Вкладка выбора цвета -->
+    <div class="dropdown">
+        <button class="dropdown-btn">Выберите цвет машины</button>
+        <ul class="dropdown-menu">
+            <!-- Список всех цветов -->
+            <li class="dropdown-item">
+                <input type="radio" id="bronze" name="color" value="bronze">
+                <label for="bronze">Бронза</label>
+                <span class="checkmark"></span>
+            </li>
+            <li class="dropdown-item">
+                <input type="radio" id="cherry" name="color" value="cherry">
+                <label for="cherry">Вишня</label>
+                <span class="checkmark"></span>
+            </li>
+            <li class="dropdown-item">
+                <input type="radio" id="chameleon" name="color" value="chameleon">
+                <label for="chameleon">Хамелеон</label>
+                <span class="checkmark"></span>
+            </li>
+            <li class="dropdown-item">
+                <input type="radio" id="beige" name="color" value="beige">
+                <label for="beige">Бежевый</label>
+                <span class="checkmark"></span>
+            </li>
+            <li class="dropdown-item">
+                <input type="radio" id="white" name="color" value="white">
+                <label for="white">Белый</label>
+                <span class="checkmark"></span>
+            </li>
+            <li class="dropdown-item">
+                <input type="radio" id="turquoise" name="color" value="turquoise">
+                <label for="turquoise">Бирюзовый</label>
+                <span class="checkmark"></span>
+            </li>
+            <li class="dropdown-item">
+                <input type="radio" id="burgundy" name="color" value="burgundy">
+                <label for="burgundy">Бордовый</label>
+                <span class="checkmark"></span>
+            </li>
+            <li class="dropdown-item">
+                <input type="radio" id="blue" name="color" value="blue">
+                <label for="blue">Голубой</label>
+                <span class="checkmark"></span>
+            </li>
+            <li class="dropdown-item">
+                <input type="radio" id="yellow" name="color" value="yellow">
+                <label for="yellow">Жёлтый</label>
+                <span class="checkmark"></span>
+            </li>
+            <li class="dropdown-item">
+                <input type="radio" id="green" name="color" value="green">
+                <label for="green">Зелёный</label>
+                <span class="checkmark"></span>
+            </li>
+            <li class="dropdown-item">
+                <input type="radio" id="golden" name="color" value="golden">
+                <label for="golden">Золотистый</label>
+                <span class="checkmark"></span>
+            </li>
+            <li class="dropdown-item">
+                <input type="radio" id="brown" name="color" value="brown">
+                <label for="brown">Коричневый</label>
+                <span class="checkmark"></span>
+            </li>
+            <li class="dropdown-item">
+                <input type="radio" id="red" name="color" value="red">
+                <label for="red">Красный</label>
+                <span class="checkmark"></span>
+            </li>
+            <li class="dropdown-item">
+                <input type="radio" id="orange" name="color" value="orange">
+                <label for="orange">Оранжевый</label>
+                <span class="checkmark"></span>
+            </li>
+            <li class="dropdown-item">
+                <input type="radio" id="pink" name="color" value="pink">
+                <label for="pink">Розовый</label>
+                <span class="checkmark"></span>
+            </li>
+            <li class="dropdown-item">
+                <input type="radio" id="silver" name="color" value="silver">
+                <label for="silver">Серебристый</label>
+                <span class="checkmark"></span>
+            </li>
+            <li class="dropdown-item">
+                <input type="radio" id="gray" name="color" value="gray">
+                <label for="gray">Серый</label>
+                <span class="checkmark"></span>
+            </li>
+            <li class="dropdown-item">
+                <input type="radio" id="darkblue" name="color" value="darkblue">
+                <label for="darkblue">Синий</label>
+                <span class="checkmark"></span>
+            </li>
+            <li class="dropdown-item">
+                <input type="radio" id="purple" name="color" value="purple">
+                <label for="purple">Сиреневый</label>
+                <span class="checkmark"></span>
+            </li>
+            <li class="dropdown-item">
+                <input type="radio" id="violet" name="color" value="violet">
+                <label for="violet">Фиолетовый</label>
+                <span class="checkmark"></span>
+            </li>
+            <li class="dropdown-item">
+                <input type="radio" id="black" name="color" value="black">
+                <label for="black">Чёрный</label>
+                <span class="checkmark"></span>
+            </li>
+        </ul>
     </div>
-<script src="script.js"></script>
+</div>
+
+  <script src="script.js"></script>
 </body>
+
 </html>
