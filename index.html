@@ -8,10 +8,15 @@
         href="LOGO.png">
     <link id="theme-stylesheet" rel="stylesheet" href="light-theme.css">
 </head>
-<body>
-    <img src="LOGO-round.png" width="60px" height="60px" alt="">
-    <button id="theme-toggle">Сменить тему</button>
-
+<body class="light-theme">
+  <img src="LOGO-round.png" width="60px" height="60px" alt="">
+  <h1>CarChoiceAI</h1>
+    <div class="theme-switcher">
+      <button id="theme-toggle" aria-label="Toggle theme">
+        <span class="icon sun">☀️</span>
+        <span class="icon moon">🌙</span>
+      </button>
+    </div>
 <script src="script.js"></script>
 </body>
 </html>

@@ -1,11 +1,15 @@
-// тема светлая темная 
-const themeToggleButton = document.getElementById('theme-toggle');
-const themeStylesheet = document.getElementById('theme-stylesheet');
+// Находим кнопку и body
+const toggleButton = document.getElementById('theme-toggle');
+const body = document.body;
 
-themeToggleButton.addEventListener('click', function() {
-  if (themeStylesheet.getAttribute('href') === 'light-theme.css') {
-    themeStylesheet.setAttribute('href', 'dark-theme.css');
+// Добавляем обработчик клика на кнопку
+toggleButton.addEventListener('click', () => {
+  // Переключаем классы темы
+  if (body.classList.contains('light-theme')) {
+    body.classList.remove('light-theme');
+    body.classList.add('dark-theme');
   } else {
-    themeStylesheet.setAttribute('href', 'light-theme.css');
+    body.classList.remove('dark-theme');
+    body.classList.add('light-theme');
   }
 });

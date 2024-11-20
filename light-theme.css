@@ -1,23 +1,89 @@
-/* светлая тема*/
+/* Общие стили для страницы */
 body {
-    background-color: #ffffff;
-    color: #000000;
-  }
-  
-  button {
-    background-color: #f0f0f0;
-    color: #000;
-    border: 1px solid #ccc;
-  }
-/* темная тема */
-  body {
-    background-color: #121212;
-    color: #ffffff;
-  }
-  
-  button {
-    background-color: #333;
-    color: #fff;
-    border: 1px solid #444;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Стили для заголовка */
+h1 {
+  position: relative;
+  font-size: 4rem;
+  text-align: center;
+  margin: 0;
+  padding-bottom: 600px;
+}
+
+/* Линия под заголовком */
+h1::after {
+  content: "";
+  display: block;
+  width: 100%; /* Ширина линии, можно менять */
+  height: 2px; /* Толщина линии */
+  background: #000; /* Цвет линии */
+  margin: 10px auto 0; /* Отступ сверху */
+}
+
+/* Базовые стили для светлой и темной темы */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.light-theme {
+  background-color: #ffffff;
+  color: #333333;
+}
+
+body.dark-theme {
+  background-color: #333333;
+  color: #ffffff;
+}
+
+/* Стили для переключателя темы */
+.theme-switcher {
+  position: fixed; /* Закрепляем кнопку */
+  top: 15px;       /* Отступ сверху */
+  right: 20px;     /* Отступ справа */
+  z-index: 1000;   /* Поверх остальных элементов */
+}
+
+#theme-toggle {
+  background: none;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  padding: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+#theme-toggle:hover {
+  transform: scale(1.1);
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Иконки переключателя */
+#theme-toggle .icon {
+  display: none; /* Скрываем иконки по умолчанию */
+  transition: opacity 0.3s;
+}
+
+/* Показываем солнце в светлой теме */
+body.light-theme #theme-toggle .sun {
+  display: inline;
+}
+
+/* Показываем луну в темной теме */
+body.dark-theme #theme-toggle .moon {
+  display: inline;
+}
+
   
