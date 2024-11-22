@@ -1,55 +1,101 @@
-/* Сброс отступов страницы */
+.ai {
+  color: #007bff;
+}
+
+/* Сброс стандартных стилей */
 body {
-  margin: 0;
-  padding: 0;
-}
-
-/* Стили для шапки */
-header {
-  position: fixed; /* Закрепляем логотип */
-  top: 0; /* Расположение сверху */
-  left: 0; /* Расположение слева */
-  padding: 10px; /* Отступы вокруг логотипа */
-  background-color: transparent; /* Фон, если нужно */
-}
-
-/* Стили для логотипа */
-.logo {
-  width: 30px; /* Задайте ширину логотипа */
-  height: 30px; /* Автоматическая высота для сохранения пропорций */
-}
-
-/* Общие стили для страницы */
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
   margin: 0;
   font-family: Arial, sans-serif;
 }
 
-/* Стили для заголовка */
-h1 {
-  position: relative;
-  font-size: 4rem;
-  text-align: center;
-  margin: 0;
-  padding-bottom: 600px;
+/* Стили для логотипа */
+.logo-container {
+  padding: 10px;
+  /* Отступы вокруг логотипа */
+  text-align: left;
+  /* Выравнивание логотипа по левому краю */
 }
 
-/* Линия под заголовком */
-h1::after {
-  content: "";
-  display: block;
+.logo {
+  width: 60px;
+  /* Размер логотипа */
+  height: auto;
+  /* Автоматическое масштабирование высоты */
+}
+
+/* Общий стиль */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background: #ffffff;
+  /* Белый фон */
+  overflow: hidden;
+  height: 100vh;
+}
+
+.animation-container {
+  position: relative;
   width: 100%;
-  /* Ширина линии, можно менять */
-  height: 2px;
-  /* Толщина линии */
-  background: #000;
-  /* Цвет линии */
-  margin: 5px auto 0;
-  /* Отступ сверху */
+  height: 80px;
+  /* Высота анимации */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Изображение машины */
+.car {
+  position: absolute;
+  left: -200px;
+  /* Машина стартует за пределами экрана */
+  width: 200px;
+  /* Размер машины */
+  animation: carMove 3s ease-in-out forwards;
+}
+
+/* Название сайта */
+.site-title {
+  font-size: 4rem;
+  font-weight: bold;
+  color: #000000;
+  text-transform: ;
+  text-align: center;
+  position: absolute;
+  opacity: 0;
+  /* Скрыто до анимации */
+  animation: textAppear 1.5s ease-in-out forwards;
+  animation-delay: 3s;
+  /* Появление текста после проезда машины */
+}
+
+/* Анимации */
+@keyframes carMove {
+  0% {
+    left: -200px;
+  }
+
+  70% {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  100% {
+    left: 120%;
+  }
+}
+
+@keyframes textAppear {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Базовые стили для светлой и темной темы */
@@ -115,122 +161,174 @@ body.light-theme #theme-toggle .sun {
 body.dark-theme #theme-toggle .moon {
   display: inline;
 }
-/* Общие стили */
+
+/* Основные стили */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    height: 100vh;
-    background-color: #f5f5f5;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  transition: background-color 0.3s, color 0.3s;
 }
 
-/* Кнопка выпадающего меню */
-.dropdown-btn {
-    padding: 15px 20px;
-    font-size: 16px;
-    font-weight: bold;
-    background-color: #000000;
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+body.light-theme {
+  background-color: #ffffff;
+  color: #333333;
 }
 
-.dropdown-btn:hover {
-    background-color: #5d6166;
+body.dark-theme {
+  background-color: #333333;
+  color: #ffffff;
 }
 
-/* Обёртка выпадающего меню */
-.dropdown {
-    position: relative;
-    width: 250px;
+/* Кнопка темы */
+.theme-switcher {
+  position: fixed;
+  top: 20px;
+  right: 20px;
 }
 
-/* Стили для выпадающего меню */
-.dropdown-menu {
-    display: none; /* Скрываем меню по умолчанию */
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    list-style: none;
-    padding: 10px 0;
-    margin: 15px 0 0;
-    z-index: 1000;
-    max-height: 200px;
-    overflow-y: auto; /* Прокрутка, если список длинный */
+/* Вкладки */
+.tabs {
+  max-width: 1000px;
+  margin: 90px auto;
 }
 
-.dropdown.open .dropdown-menu {
-    display: block; /* Показываем меню */
-}
-
-/* Элементы списка */
-.dropdown-item {
-    display: flex;
-    align-items: center;
-    padding: 10px 20px;
-    cursor: pointer;
-    position: relative;
-}
-
-.dropdown-item:hover {
-    background-color: #f0f0f0;
-}
-
-/* Радиокнопки */
-.dropdown-item input[type="radio"] {
-    display: none; /* Скрываем стандартное отображение */
-}
-
-.dropdown-item label {
-    flex: 1;
-    margin: 0;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-/* Галочка (стилизованный чекмарк) */
-.dropdown-item .checkmark {
-    width: 20px;
-    height: 20px;
-    border: 2px solid #ccc;
-    border-radius: 50%;
-    display: inline-block;
-    margin-left: 10px;
-    position: relative;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
-}
-
-.dropdown-item input[type="radio"]:checked + label + .checkmark {
-    background-color: #000000;
-    border-color: #000000;
-}
-
-.dropdown-item input[type="radio"]:checked + label + .checkmark::after {
-    content: "";
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    width: 10px;
-    height: 10px;
-    background-color: #fff;
-    border-radius: 100%;
-}
-/* Центрирование кнопки слева */
-.container {
+.tab-list {
   display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  height: 50vh;
-  padding-left: 20px;
+  list-style: none;
+  padding: 0;
+  border-bottom: 2px solid #ccc;
 }
 
+.tab {
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.tab.active {
+  font-weight: bold;
+  background-color: #1d4a7d;
+  color: #000000;
+}
+
+.tab:hover {
+  background-color: #0056b3;
+  color: #fff;
+}
+
+.tab-content {
+  margin-top: 20px;
+}
+
+.tab-panel {
+  display: none;
+}
+
+.tab-panel.active {
+  display: block;
+}
+
+/* Кнопка поиска */
+.find-car-btn {
+  display: block;
+  width: 100%;
+  margin: 20px auto;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.find-car-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Результат */
+.result {
+  text-align: center;
+  margin-top: 20px;
+  padding: 10px;
+  font-weight: bold;
+  color: #2a6d2e;
+}
+
+/* Основные стили */
+body {
+  font-size: 18px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+h1,
+h2 {
+  text-align: center;
+}
+
+.tab-list {
+  font-size: 25px;
+}
+
+.selection-display {
+  margin-top: 20px;
+  font-style: italic;
+  color: #555;
+  display: none;
+  /* Изначально скрыто */
+}
+
+.buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.find-car-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  background-color: #4CAF50;
+  color: white;
+}
+
+.find-car-btn:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+}
+
+.reset-btn {
+  background-color: transparent;
+  border: none;
+  padding: 30px;
+  cursor: pointer;
+  font-size: 30px;
+  /* Размер иконки */
+  color: #f44336;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.reset-btn:hover {
+  color: #d32f2f;
+  transform: scale(1.2);
+}
+
+.reset-icon {
+  font-size: 30px;
+  /* Размер иконки */
+}
+
+.result {
+  margin-top: 20px;
+  font-size: 20px;
+  color: #333;
+  text-align: center;
+}
