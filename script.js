@@ -6,88 +6,83 @@ toggleButton.addEventListener('click', () => {
   body.classList.toggle('light-theme');
   body.classList.toggle('dark-theme');
 });
-// Звук проезжающей машины (опционально)
-document.addEventListener("DOMContentLoaded", () => {
-  const audio = new Audio("car-drive-by.mp3"); // Замените на имя вашего файла
-  audio.volume = 0.8;
-  audio.play();
-});
-
 
 // Логика вкладок
 const tabs = document.querySelectorAll('.tab');
-const panels = document.querySelectorAll('.tab-panel');
+const tabPanels = document.querySelectorAll('.tab-panel');
 
 tabs.forEach(tab => {
   tab.addEventListener('click', () => {
-    // Удаляем активный класс у всех вкладок и панелей
-    tabs.forEach(t => t.classList.remove('active'));
-    panels.forEach(p => p.classList.remove('active'));
+    // Убираем активный класс с всех вкладок и панелей
+    tabs.forEach(tab => tab.classList.remove('active'));
+    tabPanels.forEach(panel => panel.classList.remove('active'));
 
-    // Добавляем активный класс выбранной вкладке и её панели
+    // Добавляем активный класс к текущей вкладке и панели
     tab.classList.add('active');
-    document.getElementById(tab.dataset.tab).classList.add('active');
+    const activeTabPanel = document.getElementById(tab.dataset.tab);
+    activeTabPanel.classList.add('active');
   });
 });
 
-// Автообновление выбранных параметров
-document.querySelectorAll('select').forEach(select => {
-  select.addEventListener('change', event => {
-    const display = document.getElementById(`selected-${event.target.id.split('-')[1]}`);
-    if (display) {
-      const selectedValue = event.target.value;
-      // Если ничего не выбрано, скрываем элемент
-      if (!selectedValue) {
-        display.textContent = '';
-        display.style.display = 'none';
-      } else {
-        // Иначе показываем выбранное значение
-        display.textContent = `Выбрано: ${event.target.options[event.target.selectedIndex].text}`;
-        display.style.display = 'block';
-      }
-    }
-  });
-});
-
-// Найти машину
+// Логика кнопки "Найти машину"
 const findCarButton = document.getElementById('find-car');
 findCarButton.addEventListener('click', () => {
   const result = document.getElementById('result');
-  const selects = document.querySelectorAll('select');
 
-  const selectedValues = Array.from(selects).map(select => select.value);
-  const isAnySelected = selectedValues.some(value => value);
+  // Считываем значения
+  const brand = document.getElementById('car-brand').value;
+  const color = document.getElementById('car-color').value;
+  const gearbox = document.getElementById('car-gearbox').value;
+  const fuel = document.getElementById('car-fuel').value;
+  const body = document.getElementById('car-body').value;
+  const drivetrain = document.getElementById('car-drive').value;  // Здесь изменили id на car-drive
+  const steeringWheel = document.getElementById('car-wheel').value;
 
-  if (!isAnySelected) {
-    result.textContent = 'Ошибка: выберите хотя бы одну характеристику машины!';
+  // Диапазон цены
+  const priceFrom = document.getElementById('price-from').value;
+  const priceTo = document.getElementById('price-to').value;
+  const priceRange = priceFrom || priceTo
+    ? `от ${priceFrom || '0'} до ${priceTo || '∞'}`
+    : '';
+
+  // Диапазон годов
+  const yearFrom = document.getElementById('year-from').value;
+  const yearTo = document.getElementById('year-to').value;
+  const yearRange = yearFrom || yearTo
+    ? `от ${yearFrom || '1900'} до ${yearTo || '2024'}`
+    : '';
+
+  // Объём двигателя
+  const engineFrom = document.getElementById('engine-from').value;
+  const engineTo = document.getElementById('engine-to').value;
+  const engineRange = engineFrom || engineTo
+    ? `от ${engineFrom || '0.1'} до ${engineTo || '9.9'}`
+    : '';
+
+  // Если не выбрано ни одного параметра, показываем ошибку
+  if (!brand && !color && !gearbox && !fuel && !body && !drivetrain && !steeringWheel && !priceRange && !yearRange && !engineRange) {
+    result.textContent = 'Ошибка: выберите хотя бы один параметр!';
     result.style.color = 'red';
     return;
   }
 
-  const color = document.getElementById('car-color').value || 'не выбрано';
-  const brand = document.getElementById('car-brand').value || 'не выбрано';
-  const speed = document.getElementById('car-speed').value || 'не выбрано';
-  const price = document.getElementById('car-price').value || 'не выбрано';
-  const engine = document.getElementById('car-engine').value || 'не выбрано';
-  const gearbox = document.getElementById('car-gearbox').value || 'не выбрано';
-  const wheel = document.getElementById('car-wheel').value || 'не выбрано';
-
-  result.textContent = `Вы подобрали машину: 
-  Цвет: ${color}, Марка: ${brand}, Скорость: ${speed}, Цена: ${price}, 
-  Двигатель: ${engine}, Коробка: ${gearbox}, Руль: ${wheel}`;
+  // Отображаем результат
+  result.textContent = `Вы подобрали машину:
+    Марка: ${brand || 'не выбрано'}, Год: ${yearRange || 'не выбрано'}, Цена: ${priceRange || 'не выбрано'}, 
+    Коробка: ${gearbox || 'не выбрано'}, Кузов: ${body || 'не выбрано'}, Топливо: ${fuel || 'не выбрано'},
+    Объём двигателя: ${engineRange || 'не выбрано'}, Привод: ${drivetrain || 'не выбрано'}, Цвет: ${color || 'не выбрано'}`;
   result.style.color = 'black';
 });
 
-// Сброс параметров
+// Логика кнопки "Сбросить"
 const resetButton = document.getElementById('reset-selection');
 resetButton.addEventListener('click', () => {
   document.querySelectorAll('select').forEach(select => {
     select.value = '';
-    const display = document.getElementById(`selected-${select.id.split('-')[1]}`);
-    if (display) {
-      display.textContent = '';
-      display.style.display = 'none';
-    }
+  });
+
+  document.querySelectorAll('input[type="number"]').forEach(input => {
+    input.value = '';
   });
 
   const result = document.getElementById('result');

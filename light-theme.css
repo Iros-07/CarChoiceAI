@@ -230,34 +230,6 @@ body.dark-theme {
   display: block;
 }
 
-/* Кнопка поиска */
-.find-car-btn {
-  display: block;
-  width: 100%;
-  margin: 20px auto;
-  padding: 10px;
-  font-size: 16px;
-  font-weight: bold;
-  color: #fff;
-  background-color: #007bff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.find-car-btn:hover {
-  background-color: #0056b3;
-}
-
-/* Результат */
-.result {
-  text-align: center;
-  margin-top: 20px;
-  padding: 10px;
-  font-weight: bold;
-  color: #2a6d2e;
-}
 
 /* Основные стили */
 body {
@@ -273,6 +245,26 @@ h2 {
 .tab-list {
   font-size: 25px;
 }
+/* Вкладки Год и Цена */
+#tab-price input,
+#tab-year input {
+  margin: 5px 10px;
+  padding: 5px;
+  width: 120px;
+  font-size: 14px;
+}
+
+#tab-price label,
+#tab-year label {
+  margin-right: 5px;
+}
+
+#tab-price .selection-display,
+#tab-year .selection-display {
+  font-style: italic;
+  color: #555;
+}
+
 
 .selection-display {
   margin-top: 20px;
@@ -281,23 +273,26 @@ h2 {
   display: none;
   /* Изначально скрыто */
 }
-
 .buttons {
   display: flex;
-  gap: 15px;
+  gap: 20px; /* Увеличенное расстояние между кнопками */
   justify-content: center;
   margin-top: 20px;
+  align-items: center; /* Выровнять кнопки по вертикали */
 }
 
 .find-car-btn {
   padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #4CAF50; /* Зеленый цвет */
   border: none;
   border-radius: 5px;
-  font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
-  background-color: #4CAF50;
-  color: white;
+  width: 300px; /* Увеличиваем ширину кнопки "Найти машину" */
+  text-align: center;
 }
 
 .find-car-btn:hover {
@@ -306,25 +301,29 @@ h2 {
 }
 
 .reset-btn {
-  background-color: transparent;
+  background-color: #f44336; /* Красный фон */
+  color: white;
   border: none;
-  padding: 30px;
+  border-radius: 5px; /* Делаем углы слегка закругленными */
+  width: 40px; /* Квадратная форма */
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  font-size: 30px;
-  /* Размер иконки */
-  color: #f44336;
-  transition: transform 0.2s ease, color 0.2s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .reset-btn:hover {
-  color: #d32f2f;
-  transform: scale(1.2);
+  background-color: #d32f2f;
+  transform: scale(1.1); /* Легкое увеличение при наведении */
 }
 
 .reset-icon {
-  font-size: 30px;
-  /* Размер иконки */
+  font-size: 20px; /* Размер крестика */
+  line-height: 1;
 }
+
 
 .result {
   margin-top: 20px;

@@ -26,117 +26,140 @@
             <span class="icon moon">🌙</span>
         </button>
     </div>
-    <!-- Меню вкладок -->
     <div class="tabs">
-        <h1>Выберите характеристики автомобиля</h1>
-
         <ul class="tab-list">
-            <li class="tab active" data-tab="tab-color">Цвет</li>
-            <li class="tab" data-tab="tab-brand">Марка</li>
-            <li class="tab" data-tab="tab-speed">Скорость</li>
-            <li class="tab" data-tab="tab-price">Цена</li>
-            <li class="tab" data-tab="tab-engine">Двигатель</li>
-            <li class="tab" data-tab="tab-gearbox">Коробка передач</li>
-            <li class="tab" data-tab="tab-wheel">Руль</li>
+          <li class="tab active" data-tab="tab-brand">Марка</li>
+          <li class="tab" data-tab="tab-year">Год выпуска</li>
+          <li class="tab" data-tab="tab-price">Цена</li>
+          <li class="tab" data-tab="tab-gearbox">Коробка передач</li>
+          <li class="tab" data-tab="tab-body">Кузов</li>
+          <li class="tab" data-tab="tab-fuel">Тип топлива</li>
+          <li class="tab" data-tab="tab-engine">Объем двигателя</li>
+          <li class="tab" data-tab="tab-wheel">Руль</li>
+          <li class="tab" data-tab="tab-drive">Привод</li>
+          <li class="tab" data-tab="tab-color">Цвет</li>
         </ul>
-
-        <div class="tab-content">
-            <!-- Вкладка Цвет -->
-            <div id="tab-color" class="tab-panel active">
-                <h2>Цвет машины</h2>
-                <select id="car-color">
-                    <option value="" selected>Не выбрано</option>
-                    <option value="red">Красный</option>
-                    <option value="blue">Синий</option>
-                    <option value="black">Черный</option>
-                    <option value="white">Белый</option>
-                </select>
-                <p id="selected-color" class="selection-display">Выбрано: Не выбрано</p>
-            </div>
-
-            <!-- Вкладка Марка -->
-            <div id="tab-brand" class="tab-panel">
-                <h2>Марка машины</h2>
-                <select id="car-brand">
-                    <option value="" selected>Не выбрано</option>
-                    <option value="toyota">Toyota</option>
-                    <option value="bmw">BMW</option>
-                    <option value="audi">Audi</option>
-                    <option value="mercedes">Mercedes</option>
-                </select>
-                <p id="selected-brand" class="selection-display">Выбрано: Не выбрано</p>
-            </div>
-
-            <!-- Вкладка Скорость -->
-            <div id="tab-speed" class="tab-panel">
-                <h2>Скорость</h2>
-                <select id="car-speed">
-                    <option value="" selected>Не выбрано</option>
-                    <option value="slow">До 150 км/ч</option>
-                    <option value="medium">150-200 км/ч</option>
-                    <option value="fast">200+ км/ч</option>
-                </select>
-                <p id="selected-speed" class="selection-display">Выбрано: Не выбрано</p>
-            </div>
-
-            <!-- Вкладка Цена -->
-            <div id="tab-price" class="tab-panel">
-                <h2>Цена</h2>
-                <select id="car-price">
-                    <option value="" selected>Не выбрано</option>
-                    <option value="cheap">До 1 млн руб</option>
-                    <option value="midrange">1-3 млн руб</option>
-                    <option value="expensive">Более 3 млн руб</option>
-                </select>
-                <p id="selected-price" class="selection-display">Выбрано: Не выбрано</p>
-            </div>
-
-            <!-- Вкладка Двигатель -->
-            <div id="tab-engine" class="tab-panel">
-                <h2>Тип двигателя</h2>
-                <select id="car-engine">
-                    <option value="" selected>Не выбрано</option>
-                    <option value="gasoline">Бензин</option>
-                    <option value="diesel">Дизель</option>
-                    <option value="electric">Электрический</option>
-                    <option value="hybrid">Гибрид</option>
-                </select>
-                <p id="selected-engine" class="selection-display">Выбрано: Не выбрано</p>
-            </div>
-
-            <!-- Вкладка Коробка передач -->
-            <div id="tab-gearbox" class="tab-panel">
-                <h2>Коробка передач</h2>
-                <select id="car-gearbox">
-                    <option value="" selected>Не выбрано</option>
-                    <option value="manual">Механика</option>
-                    <option value="automatic">Автомат</option>
-                </select>
-                <p id="selected-gearbox" class="selection-display">Выбрано: Не выбрано</p>
-            </div>
-
-            <!-- Вкладка Руль -->
-            <div id="tab-wheel" class="tab-panel">
-                <h2>Руль</h2>
-                <select id="car-wheel">
-                    <option value="" selected>Не выбрано</option>
-                    <option value="left">Левый</option>
-                    <option value="right">Правый</option>
-                </select>
-                <p id="selected-wheel" class="selection-display">Выбрано: Не выбрано</p>
-            </div>
+      
+        <!-- Марка -->
+        <div id="tab-brand" class="tab-panel active">
+          <select id="car-brand">
+            <option value="">Выберите марку</option>
+            <option value="toyota">Toyota</option>
+            <option value="honda">Honda</option>
+            <option value="bmw">BMW</option>
+            <option value="mercedes">Mercedes-Benz</option>
+            <option value="audi">Audi</option>
+            <option value="ford">Ford</option>
+            <option value="chevrolet">Chevrolet</option>
+            <option value="kia">Kia</option>
+            <option value="hyundai">Hyundai</option>
+            <option value="nissan">Nissan</option>
+            <!-- Добавьте больше марок -->
+          </select>
         </div>
-        <!-- Кнопки управления -->
-        <div class="buttons">
-            <button id="find-car" class="find-car-btn">Найти машину</button>
-            <button id="reset-selection" class="reset-btn" aria-label="Сбросить параметры">
-                <span class="reset-icon">✖</span>
-            </button>
+      
+        <!-- Год выпуска -->
+        <div id="tab-year" class="tab-panel">
+          <label>От: <input id="year-from" type="number" placeholder="1900" min="1900" max="2024"></label>
+          <label>До: <input id="year-to" type="number" placeholder="2024" min="1900" max="2024"></label>
         </div>
-        <div id="result" class="result"></div>
+      
+        <!-- Цена -->
+        <div id="tab-price" class="tab-panel">
+          <label>От: <input id="price-from" type="number" placeholder="0" min="0"></label>
+          <label>До: <input id="price-to" type="number" placeholder="∞" min="0"></label>
+        </div>
+      
+        <!-- Коробка передач -->
+        <div id="tab-gearbox" class="tab-panel">
+          <select id="car-gearbox">
+            <option value="">Выберите коробку</option>
+            <option value="manual">Механика</option>
+            <option value="automatic">Автомат</option>
+            <option value="cvt">Вариатор</option>
+            <option value="robotic">Робот</option>
+          </select>
+        </div>
+      
+        <!-- Кузов -->
+        <div id="tab-body" class="tab-panel">
+          <select id="car-body">
+            <option value="">Выберите тип кузова</option>
+            <option value="sedan">Седан</option>
+            <option value="hatchback">Хэтчбек</option>
+            <option value="suv">Внедорожник</option>
+            <option value="coupe">Купе</option>
+            <option value="convertible">Кабриолет</option>
+            <option value="wagon">Универсал</option>
+            <option value="pickup">Пикап</option>
+          </select>
+        </div>
+      
+        <!-- Тип топлива -->
+        <div id="tab-fuel" class="tab-panel">
+          <select id="car-fuel">
+            <option value="">Выберите тип топлива</option>
+            <option value="petrol">Бензин</option>
+            <option value="diesel">Дизель</option>
+            <option value="electric">Электро</option>
+            <option value="hybrid">Гибрид</option>
+          </select>
+        </div>
+      
+        <!-- Объем двигателя -->
+        <div id="tab-engine" class="tab-panel">
+          <label>От: <input id="engine-from" type="number" step="0.1" placeholder="0.1" min="0.1" max="9.9"></label>
+          <label>До: <input id="engine-to" type="number" step="0.1" placeholder="9.9" min="0.1" max="9.9"></label>
+        </div>
+      
+        <!-- Руль -->
+        <div id="tab-wheel" class="tab-panel">
+          <select id="car-wheel">
+            <option value="">Выберите сторону</option>
+            <option value="left">Левый</option>
+            <option value="right">Правый</option>
+          </select>
+        </div>
+      
+        <!-- Привод -->
+        <div id="tab-drive" class="tab-panel">
+          <select id="car-drive">
+            <option value="">Выберите привод</option>
+            <option value="front">Передний</option>
+            <option value="rear">Задний</option>
+            <option value="awd">Полный</option>
+          </select>
+        </div>
+      
+        <!-- Цвет -->
+        <div id="tab-color" class="tab-panel">
+          <select id="car-color">
+            <option value="">Выберите цвет</option>
+            <option value="white">Белый</option>
+            <option value="black">Черный</option>
+            <option value="silver">Серебристый</option>
+            <option value="red">Красный</option>
+            <option value="blue">Синий</option>
+            <option value="green">Зеленый</option>
+            <option value="yellow">Желтый</option>
+            <option value="gold">Золотой</option>
+            <option value="brown">Коричневый</option>
+            <option value="purple">Фиолетовый</option>
+            <!-- Добавьте больше цветов -->
+          </select>
+        </div>
+      </div>
+      
+ 
+  <!-- Кнопки -->
+  <div class="buttons">
+    <button id="find-car" class="find-car-btn">Найти машину</button>
+    <button id="reset-selection" class="reset-btn">❌</button>
+  </div>
 
-
-
+  <!-- Результат -->
+  <div id="result" class="result"></div>
+    
 
         <script src="script.js"></script>
 </body>
