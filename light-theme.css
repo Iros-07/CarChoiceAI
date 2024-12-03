@@ -1,73 +1,49 @@
-.ai {
-  color: #007bff;
-}
-
-/* Сброс стандартных стилей */
+/* Общий стиль для страницы */
 body {
+  font-family: 'Arial', sans-serif;
   margin: 0;
-  font-family: Arial, sans-serif;
+  padding: 0;
+  transition: background-color 0.3s, color 0.3s;
 }
 
-/* Стили для логотипа */
+/* Логотип */
 .logo-container {
   padding: 10px;
-  /* Отступы вокруг логотипа */
   text-align: left;
-  /* Выравнивание логотипа по левому краю */
 }
 
 .logo {
   width: 60px;
-  /* Размер логотипа */
   height: auto;
-  /* Автоматическое масштабирование высоты */
 }
 
-/* Общий стиль */
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Arial', sans-serif;
-  background: #ffffff;
-  /* Белый фон */
-  overflow: hidden;
-  height: 100vh;
-}
-
+/* Анимация появления машины */
 .animation-container {
   position: relative;
   width: 100%;
   height: 80px;
-  /* Высота анимации */
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* Изображение машины */
 .car {
   position: absolute;
   left: -200px;
-  /* Машина стартует за пределами экрана */
   width: 200px;
-  /* Размер машины */
   animation: carMove 3s ease-in-out forwards;
 }
 
-/* Название сайта */
 .site-title {
   font-size: 4rem;
   font-weight: bold;
   color: #000000;
-  text-transform: ;
   text-align: center;
   position: absolute;
   opacity: 0;
-  /* Скрыто до анимации */
   animation: textAppear 1.5s ease-in-out forwards;
   animation-delay: 3s;
-  /* Появление текста после проезда машины */
 }
 
 /* Анимации */
@@ -98,236 +74,490 @@ body {
   }
 }
 
-/* Базовые стили для светлой и темной темы */
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  transition: background-color 0.3s, color 0.3s;
-}
-
-body.light-theme {
-  background-color: #ffffff;
-  color: #333333;
-}
-
-body.dark-theme {
-  background-color: #333333;
-  color: #ffffff;
-}
-
-/* Стили для переключателя темы */
-.theme-switcher {
-  position: fixed;
-  /* Закрепляем кнопку */
-  top: 15px;
-  /* Отступ сверху */
-  right: 20px;
-  /* Отступ справа */
-  z-index: 1000;
-  /* Поверх остальных элементов */
-}
-
-#theme-toggle {
-  background: none;
-  border: 2px solid #ccc;
-  border-radius: 50%;
-  padding: 10px;
-  font-size: 20px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.3s, background-color 0.3s;
-}
-
-#theme-toggle:hover {
-  transform: scale(1.1);
-  background-color: rgba(0, 0, 0, 0.1);
-}
-
-/* Иконки переключателя */
-#theme-toggle .icon {
-  display: none;
-  /* Скрываем иконки по умолчанию */
-  transition: opacity 0.3s;
-}
-
-/* Показываем солнце в светлой теме */
-body.light-theme #theme-toggle .sun {
-  display: inline;
-}
-
-/* Показываем луну в темной теме */
-body.dark-theme #theme-toggle .moon {
-  display: inline;
-}
-
-/* Основные стили */
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  transition: background-color 0.3s, color 0.3s;
-}
-
-body.light-theme {
-  background-color: #ffffff;
-  color: #333333;
-}
-
-body.dark-theme {
-  background-color: #333333;
-  color: #ffffff;
-}
-
-/* Кнопка темы */
-.theme-switcher {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-}
-
 /* Вкладки */
 .tabs {
+  display: flex;
+  flex-direction: column;
+  margin: 40px auto;
   max-width: 1000px;
-  margin: 90px auto;
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  padding-bottom: 20px;
 }
 
 .tab-list {
   display: flex;
-  list-style: none;
-  padding: 0;
-  border-bottom: 2px solid #ccc;
+  overflow-x: auto;
+  background-color: var(--tabs-bg-color, #1d4a7d);
+  padding: 10px;
+  gap: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.tab-list::-webkit-scrollbar {
+  display: none;
 }
 
 .tab {
-  flex: 1;
-  text-align: center;
-  padding: 10px;
-  cursor: pointer;
-  transition: background-color 0.3s, color 0.3s;
-}
-
-.tab.active {
+  flex: none;
+  padding: 12px 18px;
+  font-size: 16px;
   font-weight: bold;
-  background-color: #1d4a7d;
-  color: #000000;
+  color: #ffffff;
+  background-color: var(--tab-default-bg, #2a5a9f);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s, transform 0.2s;
 }
 
 .tab:hover {
-  background-color: #0056b3;
-  color: #fff;
+  background-color: var(--tab-hover-bg, #467cb8);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
+.tab.active {
+  background-color: var(--tab-active-bg, #ffffff);
+  color: var(--tab-active-color, #1d4a7d);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Содержимое вкладок */
 .tab-content {
-  margin-top: 20px;
+  overflow-y: auto;
+  max-height: 500px;
+  padding: 20px 30px;
+  background-color: #ffffff;
+  color: #333;
+  font-size: 16px;
+  font-weight: 600;
 }
 
-.tab-panel {
-  display: none;
+.tab-content h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1d4a7d;
+  margin-bottom: 15px;
 }
 
-.tab-panel.active {
-  display: block;
-}
-
-
-/* Основные стили */
-body {
-  font-size: 18px;
-  transition: background-color 0.3s, color 0.3s;
-}
-
-h1,
-h2 {
-  text-align: center;
-}
-
-.tab-list {
-  font-size: 25px;
-}
-/* Вкладки Год и Цена */
-#tab-price input,
-#tab-year input {
-  margin: 5px 10px;
-  padding: 5px;
-  width: 120px;
+.tab-content p {
   font-size: 14px;
+  color: #888;
+  margin-bottom: 15px;
 }
 
-#tab-price label,
-#tab-year label {
-  margin-right: 5px;
-}
-
-#tab-price .selection-display,
-#tab-year .selection-display {
-  font-style: italic;
+.tab-content label {
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 5px;
   color: #555;
 }
 
+.tab-content input,
+.tab-content select {
+  margin: 10px 0;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tab-content input:focus,
+.tab-content select:focus {
+  border-color: #1d4a7d;
+  box-shadow: 0 0 5px rgba(29, 74, 125, 0.5);
+}
 
 .selection-display {
-  margin-top: 20px;
+  margin-top: 15px;
   font-style: italic;
-  color: #555;
-  display: none;
-  /* Изначально скрыто */
+  color: #888;
 }
+
+/* Кнопки */
 .buttons {
   display: flex;
-  gap: 20px; /* Увеличенное расстояние между кнопками */
   justify-content: center;
-  margin-top: 20px;
-  align-items: center; /* Выровнять кнопки по вертикали */
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.find-car-btn,
+.reset-btn {
+  padding: 15px 25px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .find-car-btn {
-  padding: 10px 20px;
-  font-size: 16px;
-  font-weight: bold;
-  color: #fff;
-  background-color: #4CAF50; /* Зеленый цвет */
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  width: 300px; /* Увеличиваем ширину кнопки "Найти машину" */
-  text-align: center;
+  background-color: #4CAF50;
 }
 
 .find-car-btn:hover {
   background-color: #45a049;
-  transform: scale(1.05);
+  transform: translateY(-3px);
 }
 
 .reset-btn {
-  background-color: #f44336; /* Красный фон */
-  color: white;
-  border: none;
-  border-radius: 5px; /* Делаем углы слегка закругленными */
-  width: 40px; /* Квадратная форма */
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  background-color: #ff4b4b;
 }
 
 .reset-btn:hover {
-  background-color: #d32f2f;
-  transform: scale(1.1); /* Легкое увеличение при наведении */
+  background-color: #e03b3b;
+  transform: translateY(-3px);
 }
 
-.reset-icon {
-  font-size: 20px; /* Размер крестика */
-  line-height: 1;
+.theme-toggle {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background-color: var(--button-bg-color, #ccc);
+  color: var(--button-text-color, #333);
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, color 0.3s, transform 0.2s;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
 }
 
 
 .result {
-  margin-top: 20px;
-  font-size: 20px;
-  color: #333;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px 30px;
+  border-radius: 10px;
+  background-color: var(--result-bg-color, #ffffff);
+  color: var(--result-text-color, #000);
+  font-size: 1.4rem;
+  font-weight: bold;
   text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  visibility: hidden;
+  z-index: 9999;
+  transition: opacity 0.5s ease-in-out, visibility 0s 0.5s;
+}
+
+.result.active {
+  visibility: visible;
+  opacity: 1;
+  animation: fadeInCenter 0.5s ease-out forwards;
+}
+
+.result.success {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.result.error {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+@keyframes fadeInCenter {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+:root {
+  --tabs-bg-color: #1d4a7d;
+  --tab-default-bg: #2a5a9f;
+  --tab-hover-bg: #467cb8;
+  --tab-active-bg: #ffffff;
+  --tab-active-color: #1d4a7d;
+  --button-bg-color: #ccc;
+  --button-text-color: #333;
+  --result-bg-color: #ffffff;
+  --result-text-color: #000;
+}
+
+body.dark-theme {
+  --tabs-bg-color: #333333;
+  --tab-default-bg: #444444;
+  --tab-hover-bg: #555555;
+  --tab-active-bg: #666666;
+  --tab-active-color: #ffffff;
+  --button-bg-color: #555555;
+  --button-text-color: #ffffff;
+  --result-bg-color: #222222;
+  --result-text-color: #ffffff;
+}
+
+/* Светлая тема (по умолчанию) */
+body {
+  background-color: white;
+  color: black;
+}
+
+/* Тёмная тема */
+body.dark {
+  background-color: #121212;
+  color: white;
+}
+
+/* Кнопка для переключения темы в правый верхний угол */
+#theme-toggle {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: inherit;
+}
+
+/* Добавление анимации для кнопки */
+#theme-toggle:hover {
+  color: #ffa500;
+}
+
+/* ----- Темная тема ----- */
+body.dark {
+  background-color: #121212;
+  /* Единый глубокий фон */
+  color: #dcdcdc;
+  /* Мягкий текст */
+}
+
+/* ----- Вкладки ----- */
+body.dark .tab-list {
+  background-color: #222222;
+  /* Тёмный фон для списка вкладок */
+  border-radius: 10px;
+}
+
+body.dark .tab {
+  background-color: #333333;
+  /* Серый для вкладок */
+  color: #bbbbbb;
+  /* Светлый текст */
+  transition: background-color 0.3s ease, transform 0.2s;
+}
+
+body.dark .tab:hover {
+  background-color: #444444;
+  /* Ярче при наведении */
+}
+
+body.dark .tab.active {
+  background-color: #556677;
+  /* Приглушённый сине-серый для активной вкладки */
+  color: #ffffff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* ----- Внутренний фон выбора параметров ----- */
+body.dark .tab-content {
+  background-color: #1f1f1f;
+  /* Тёмный фон внутри вкладок */
+  color: #dcdcdc;
+  /* Светлый текст */
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.6);
+}
+
+/* Поля ввода внутри вкладок */
+body.dark input,
+body.dark select,
+body.dark textarea {
+  background-color: #2b2b2b;
+  color: #dcdcdc;
+  border: 1px solid #444444;
+  border-radius: 6px;
+  padding: 10px;
+  transition: border-color 0.3s;
+}
+
+body.dark input:focus,
+body.dark select:focus,
+body.dark textarea:focus {
+  border-color: #556677;
+  /* Бирюзово-серый акцент */
+}
+
+/* ----- Кнопки ----- */
+body.dark .find-car-btn {
+  background-color: #3e5c76;
+  /* Мягкий сине-зелёный */
+  color: white;
+}
+
+body.dark .find-car-btn:hover {
+  background-color: #4a6b8a;
+  /* Светлее при наведении */
+}
+
+body.dark .reset-btn {
+  background-color: #854c4c;
+  /* Приятный красновато-коричневый */
+  color: white;
+}
+
+body.dark .reset-btn:hover {
+  background-color: #a05c5c;
+  /* Светлее при наведении */
+}
+
+/* ----- Результаты ----- */
+body.dark .result {
+  background-color: #252525;
+  color: #eaeaea;
+}
+
+body.dark .result.success {
+  background-color: #406060;
+  /* Зелёный с серым оттенком */
+}
+
+body.dark .result.error {
+  background-color: #703030;
+  /* Красный с приглушённым оттенком */
+}
+
+/* Кастомизация скроллбара для вкладок */
+body.dark .tab-list {
+  scrollbar-color: #444444 #222222;
+  /* Цвет бегунка и фона */
+  scrollbar-width: thin;
+  /* Узкий стиль скроллбара */
+}
+
+body.dark .tab-list::-webkit-scrollbar {
+  width: 8px;
+  /* Ширина полосы прокрутки */
+  height: 8px;
+}
+
+body.dark .tab-list::-webkit-scrollbar-thumb {
+  background-color: #444444;
+  /* Цвет бегунка */
+  border-radius: 10px;
+}
+
+body.dark .tab-list::-webkit-scrollbar-thumb:hover {
+  background-color: #555555;
+  /* Цвет бегунка при наведении */
+}
+
+body.dark .tab-list::-webkit-scrollbar-track {
+  background-color: #222222;
+  /* Цвет трека скроллбара */
+  border-radius: 10px;
+}
+
+/* Кастомизация вертикального скроллбара внутри вкладок */
+body.dark .tab-content {
+  scrollbar-color: #444444 #222222;
+  /* Цвет бегунка и фона */
+  scrollbar-width: thin;
+  /* Узкий стиль скроллбара */
+}
+
+body.dark .tab-content::-webkit-scrollbar {
+  width: 8px;
+  /* Ширина вертикального скроллбара */
+  height: 8px;
+  /* Высота горизонтального скроллбара (если есть) */
+}
+
+body.dark .tab-content::-webkit-scrollbar-thumb {
+  background-color: #444444;
+  /* Цвет бегунка */
+  border-radius: 10px;
+}
+
+body.dark .tab-content::-webkit-scrollbar-thumb:hover {
+  background-color: #555555;
+  /* Цвет бегунка при наведении */
+}
+
+body.dark .tab-content::-webkit-scrollbar-track {
+  background-color: #222222;
+  /* Цвет трека скроллбара */
+  border-radius: 10px;
+}
+
+/* Кастомизация скроллбара для вкладок в светлой теме */
+.tab-list {
+  scrollbar-color: #cccccc #f0f0f0;
+  /* Цвет бегунка и фона */
+  scrollbar-width: thin;
+  /* Узкий стиль скроллбара */
+}
+
+.tab-list::-webkit-scrollbar {
+  width: 8px;
+  /* Высота горизонтальной полосы прокрутки */
+  height: 8px;
+}
+
+.tab-list::-webkit-scrollbar-thumb {
+  background-color: #cccccc;
+  /* Цвет бегунка */
+  border-radius: 10px;
+}
+
+.tab-list::-webkit-scrollbar-thumb:hover {
+  background-color: #aaaaaa;
+  /* Цвет бегунка при наведении */
+}
+
+.tab-list::-webkit-scrollbar-track {
+  background-color: #f0f0f0;
+  /* Цвет трека скроллбара */
+  border-radius: 10px;
+}
+
+/* Общий стиль для страницы */
+body {
+  background-size: cover;
+  /* Масштабирует изображение, чтобы оно занимало весь экран */
+  background-position: center;
+  /* Центрирует фон */
+  background-repeat: no-repeat;
+  /* Избегает повторения изображения */
+  transition: background-image 0.5s ease-in-out;
+  /* Плавный переход между темами */
+}
+
+/* Фон для светлой темы */
+body.light {
+  background-image: url('fon2.png');
+  /* Укажите путь к фото для светлой темы */
+}
+
+/* Фон для темной темы */
+body.dark {
+  background-image: url('fon.png');
+  /* Укажите путь к фото для темной темы */
 }
