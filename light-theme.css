@@ -80,7 +80,7 @@ body {
   flex-direction: column;
   margin: 40px auto;
   max-width: 1000px;
-  background-color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.1);
   border-radius: 15px;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
   overflow: hidden;

@@ -41,17 +41,40 @@
         <div class="tab" data-tab="tab-drivetrain">Привод</div>
         <div class="tab" data-tab="tab-color">Цвет</div>
       </div>
-
       <section class="tab-content">
         <!-- Марка -->
         <div class="tab-panel active" id="tab-brand">
           <h3>Выберите марку автомобиля</h3>
           <select name="brand" required>
             <option value="" disabled selected hidden>Выберите марку</option>
+            <option value="noooo">Не выбрано</option>
             <option value="BMW">BMW</option>
             <option value="Mercedes-Benz">Mercedes-Benz</option>
             <option value="Audi">Audi</option>
             <option value="Volkswagen">Volkswagen</option>
+            <option value="Tesla">Tesla</option>
+            <option value="Jaguar">Jaguar</option>
+            <option value="Hyundai">Hyundai</option>
+            <option value="Kia">Kia</option>
+            <option value="Land Rover">Land Rover</option>
+            <option value="Volvo">Volvo</option>
+            <option value="Dodge">Dodge</option>
+            <option value="Lexus">Lexus</option>
+            <option value="Cadillac">Cadillac</option>
+            <option value="Chrysler">Chrysler</option>
+            <option value="Mazda">Mazda</option>
+            <option value="Honda">Honda</option>
+            <option value="Nissan">Nissan</option>
+            <option value="Ford">Ford</option>
+            <option value="Chevrolet">Chevrolet</option>
+            <option value="GMC">GMC</option>
+            <option value="Lincoln">Lincoln</option>
+            <option value="Acura">Acura</option>
+            <option value="Porsche">Porsche</option>
+            <option value="Subaru">Subaru</option>
+            <option value="Tesla">Jeep</option>
+            <option value="Ferrari">Ferrari</option>
+            <option value="Lamborghini">Lamborghini</option>
           </select>
         </div>
 
@@ -74,6 +97,7 @@
           <h3>Выберите тип коробки передач</h3>
           <select name="transmission" required>
             <option value="" disabled selected hidden>Выберите коробку</option>
+            <option value="noooo">Не выбрано</option>
             <option value="Механика">Механика</option>
             <option value="Автомат">Автомат</option>
             <option value="Робот">Робот</option>
@@ -85,6 +109,7 @@
           <h3>Выберите тип кузова</h3>
           <select name="body" required>
             <option value="" disabled selected hidden>Выберите кузов</option>
+            <option value="noooo">Не выбрано</option>
             <option value="Седан">Седан</option>
             <option value="Кроссовер">Кроссовер</option>
             <option value="Хэтчбек">Хэтчбек</option>
@@ -97,6 +122,7 @@
           <h3>Выберите тип топлива</h3>
           <select name="fuel" required>
             <option value="" disabled selected hidden>Выберите топливо</option>
+            <option value="noooo">Не выбрано</option>
             <option value="Бензин">Бензин</option>
             <option value="Дизель">Дизель</option>
             <option value="Гибрид">Гибрид</option>
@@ -116,6 +142,7 @@
           <h3>Выберите расположение руля</h3>
           <select name="steering" required>
             <option value="" disabled selected hidden>Выберите сторону</option>
+            <option value="noooo">Не выбрано</option>
             <option value="Левый">Левый</option>
             <option value="Правый">Правый</option>
           </select>
@@ -126,6 +153,7 @@
           <h3>Выберите тип привода</h3>
           <select name="drive" required>
             <option value="" disabled selected hidden>Выберите привод</option>
+            <option value="noooo">Не выбрано</option>
             <option value="Передний">Передний</option>
             <option value="Задний">Задний</option>
             <option value="Полный">Полный</option>
@@ -137,9 +165,14 @@
           <h3>Выберите цвет автомобиля</h3>
           <select name="color" required>
             <option value="" disabled selected hidden>Выберите цвет</option>
+            <option value="noooo">Не выбрано</option>
             <option value="Черный">Черный</option>
             <option value="Белый">Белый</option>
             <option value="Красный">Красный</option>
+            <option value="Зеленый">Зеленый</option>
+            <option value="Желтый">Желтый</option>
+            <option value="Оранжевый">Оранжевый</option>
+            <option value="Серебристый">Серебристый</option>
             <option value="Синий">Синий</option>
           </select>
         </div>
@@ -157,6 +190,7 @@
 
   <!-- Результат -->
   <div id="result" class="result"></div>
+
   <script src="script.js"></script>
   <script src="car-AI.js"></script>
   <script src="cars.json"></script>
