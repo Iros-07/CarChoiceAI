@@ -20,7 +20,7 @@
     <img src="car.png" class="car" alt="Car image">
     <h1 class="site-title">CarChoice<span class="ai">AI</span></h1>
   </div>
-
+  
   <!-- Переключатель темы -->
   <div class="theme-switcher">
     <button id="theme-toggle" aria-label="Переключить тему">🌙</button>
@@ -29,18 +29,28 @@
   <!-- Основной контент -->
   <form id="carForm">
     <div class="tabs">
-      <div class="tab-list">
-        <div class="tab active" data-tab="tab-brand">Марка</div>
-        <div class="tab" data-tab="tab-year">Год выпуска</div>
-        <div class="tab" data-tab="tab-price">Цена</div>
-        <div class="tab" data-tab="tab-gearbox">Коробка передач</div>
-        <div class="tab" data-tab="tab-body">Тип кузова</div>
-        <div class="tab" data-tab="tab-fuel">Топливо</div>
-        <div class="tab" data-tab="tab-engine">Объем двигателя</div>
-        <div class="tab" data-tab="tab-steering">Руль</div>
-        <div class="tab" data-tab="tab-drivetrain">Привод</div>
-        <div class="tab" data-tab="tab-color">Цвет</div>
+      <div class="tab-container">
+        <!-- Кнопка для прокрутки влево -->
+        <button class="scroll-btn left" id="scroll-left">🌙</button>
+        
+        <!-- Контейнер вкладок -->
+        <div class="tab-list">
+          <div class="tab active" data-tab="tab-brand">Марка</div>
+          <div class="tab" data-tab="tab-year">Год выпуска</div>
+          <div class="tab" data-tab="tab-price">Цена</div>
+          <div class="tab" data-tab="tab-gearbox">Коробка передач</div>
+          <div class="tab" data-tab="tab-body">Тип кузова</div>
+          <div class="tab" data-tab="tab-fuel">Топливо</div>
+          <div class="tab" data-tab="tab-engine">Объем двигателя</div>
+          <div class="tab" data-tab="tab-steering">Руль</div>
+          <div class="tab" data-tab="tab-drivetrain">Привод</div>
+          <div class="tab" data-tab="tab-color">Цвет</div>
+        </div>
+      
+        <!-- Кнопка для прокрутки вправо -->
+        <button class="scroll-btn right" id="scroll-right">🌙</button>
       </div>
+      
       <section class="tab-content">
         <!-- Марка -->
         <div class="tab-panel active" id="tab-brand">
@@ -178,6 +188,7 @@
         </div>
       </section>
     </div>
+    
 
     <!-- Кнопки -->
     <div class="buttons">
@@ -191,6 +202,8 @@
   <!-- Результат -->
   <div id="result" class="result"></div>
 
+
+  <script src="https://bot.jaicp.com/chatwidget/imqYiqkL:f0dc9d640357a59fdf5c7faac6fdd5be291d3c5f/justwidget.js?force=true" async></script>
   <script src="script.js"></script>
   <script src="car-AI.js"></script>
   <script src="cars.json"></script>

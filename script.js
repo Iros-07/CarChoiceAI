@@ -174,3 +174,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+document.getElementById('scroll-left').addEventListener('click', function() {
+  document.querySelector('.tab-list').scrollBy({
+    left: -200,  // Прокручиваем на 200px влево
+    behavior: 'smooth'
+  });
+});
+
+document.getElementById('scroll-right').addEventListener('click', function() {
+  document.querySelector('.tab-list').scrollBy({
+    left: 200,  // Прокручиваем на 200px вправо
+    behavior: 'smooth'
+  });
+});
