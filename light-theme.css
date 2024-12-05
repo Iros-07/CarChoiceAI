@@ -138,7 +138,7 @@ body {
 
 /* Кнопки прокруткиппппппппппппппппппппппппппппппппппппппппппппппппппппп */
 .scroll-btn {
-  background-color: #181818;
+  background-color: #b2b1ef19;
   border: none;
   padding: 0.1px;
   font-size: 18px;
@@ -307,7 +307,7 @@ body {
 }
 .result {
   position: fixed;
-  bottom: 20px; /* Отображаем снизу */
+  bottom: -500px; /* Отображаем снизу */
   left: 50%;
   transform: translateX(-50%); /* Центрируем по горизонтали */
   padding: 20px 30px;
@@ -612,6 +612,7 @@ body {
   /* Избегает повторения изображения */
   transition: background-image 0.5s ease-in-out;
   /* Плавный переход между темами */
+
 }
 
 /* Фон для светлой темы */
@@ -624,4 +625,54 @@ body.light {
 body.dark {
   background-image: url('fon.png');
   /* Укажите путь к фото для темной темы */
+}
+/* Прозрачный фон вкладок */
+.tabs {
+  background-color: rgba(255, 255, 255, 0.1); /* Белый с 50% прозрачности */
+  backdrop-filter: blur(20px); /* Размытие фона */
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  padding-bottom: 20px;
+}
+
+/* Прозрачный фон для содержимого вкладок */
+.tab-content {
+  background-color: rgba(255, 255, 255, 0.5); /* Слегка прозрачный белый */
+  backdrop-filter: blur(5px); /* Легкое размытие */
+  color: #333;
+  padding: 20px 30px;
+  border-radius: 10px;
+}
+
+/* Прозрачный фон для всплывающих сообщений */
+.result {
+  background-color: rgba(255, 255, 255, 0.8); /* Прозрачный фон */
+  backdrop-filter: blur(5px); /* Размытие */
+  color: var(--result-text-color, #000);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Тёмная тема */
+body.dark .tabs {
+  background-color: rgba(34, 34, 34, 0.1); /* Тёмный с прозрачностью */
+  backdrop-filter: blur(20px);
+}
+
+body.dark .tab-content {
+  background-color: rgba(34, 34, 34, 0.5); /* Почти непрозрачный тёмный */
+  backdrop-filter: blur(5px);
+}
+
+body.dark .result {
+  background-color: rgba(34, 34, 34, 0.9); /* Прозрачный фон для тёмной темы */
+  backdrop-filter: blur(5px);
+}
+.find-car-btn,
+.reset-btn {
+    background-color: rgba(76, 175, 80, 0.85); /* Найти машину */
+}
+
+.reset-btn {
+    background-color: rgba(255, 75, 75, 0.85); /* Сбросить */
 }

@@ -68,6 +68,7 @@ function showResult(message, type = "success") {
 }
 
 // Функция скрытия блока результата
+
 function hideResult() {
   resultContainer.classList.add("fade-out");
   setTimeout(() => {
