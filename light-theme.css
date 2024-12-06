@@ -327,16 +327,21 @@ body.dark {
 }
 .result {
   margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto; /* Центровка */
   padding: 20px 30px;
   border-radius: 10px;
-  background-color: var(--result-bg-color, #ffffff);
-  color: var(--result-text-color, #000);
+  
   font-size: 1.4rem;
   font-weight: bold;
   text-align: center;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   display: none; /* Изначально скрыт */
+  width: 50%; /* Ширина контейнера */
+  max-width: 400px; /* Максимальная ширина */
+  min-width: 200px; /* Минимальная ширина */
 }
+
 
 
 .result.active {
@@ -344,15 +349,15 @@ body.dark {
   opacity: 1;
   animation: fadeInCenter 0.5s ease-out forwards;
 }
-
+/*  ggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg */
 .result.success {
-  background-color: #d4edda;
-  color: #155724;
+  background-color: #ffffff;
+  color: #116cd3;
 }
 
 .result.error {
-  background-color: #f8d7da;
-  color: #721c24;
+  background-color: #440202;
+  color: #333;
 }
 form + .result {
   margin-top: 20px;
@@ -511,14 +516,15 @@ body.dark .reset-btn:hover {
   /* Светлее при наведении */
 }
 
-/* ----- Результаты ----- */
+/* ----- Результаты ggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg----- */
 body.dark .result {
   background-color: #252525;
-  color: #eaeaea;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+  color: #116cd3;
 }
 
 body.dark .result.success {
-  background-color: #406060;
+  background-color: #333;
   /* Зелёный с серым оттенком */
 }
 
