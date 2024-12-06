@@ -326,10 +326,7 @@ body.dark {
   transform: scale(1.1);
 }
 .result {
-  position: fixed;
-  bottom: -500px; /* Отображаем снизу */
-  left: 50%;
-  transform: translateX(-50%); /* Центрируем по горизонтали */
+  margin-top: 20px;
   padding: 20px 30px;
   border-radius: 10px;
   background-color: var(--result-bg-color, #ffffff);
@@ -337,12 +334,10 @@ body.dark {
   font-size: 1.4rem;
   font-weight: bold;
   text-align: center;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  opacity: 0;
-  visibility: hidden;
-  z-index: 9999;
-  transition: opacity 0.5s ease-in-out, visibility 0s 0.5s;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: none; /* Изначально скрыт */
 }
+
 
 .result.active {
   visibility: visible;
@@ -359,6 +354,10 @@ body.dark {
   background-color: #f8d7da;
   color: #721c24;
 }
+form + .result {
+  margin-top: 20px;
+}
+
 
 @keyframes fadeInCenter {
   0% {

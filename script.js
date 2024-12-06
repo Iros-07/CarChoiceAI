@@ -1,32 +1,37 @@
+document.addEventListener("DOMContentLoaded", function () {
+  // Создание блока для результатов
+  const resultContainer = document.createElement("div");
+  resultContainer.id = "result";
+  resultContainer.className = "result";
 
+  const mainContainer = document.querySelector("#carForm");
+  if (mainContainer) {
+    mainContainer.insertAdjacentElement("afterend", resultContainer);
+  }
 
-// Логика вкладок
-const tabs = document.querySelectorAll('.tab');
-const tabPanels = document.querySelectorAll('.tab-panel');
+  // Логика вкладок
+  const tabs = document.querySelectorAll(".tab");
+  const tabPanels = document.querySelectorAll(".tab-panel");
 
-tabs.forEach(tab => {
-  tab.addEventListener('click', () => {
-    // Убираем активный класс с всех вкладок и панелей
-    tabs.forEach(tab => tab.classList.remove('active'));
-    tabPanels.forEach(panel => panel.classList.remove('active'));
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      tabs.forEach((tab) => tab.classList.remove("active"));
+      tabPanels.forEach((panel) => panel.classList.remove("active"));
 
-    // Добавляем активный класс к текущей вкладке и панели
-    tab.classList.add('active');
-    const activeTabPanel = document.getElementById(tab.dataset.tab);
-    activeTabPanel.classList.add('active');
+      tab.classList.add("active");
+      const activeTabPanel = document.getElementById(tab.dataset.tab);
+      activeTabPanel.classList.add("active");
 
-    // Прокручиваем страницу к выбранной панели
-    activeTabPanel.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start'
+      activeTabPanel.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
     });
   });
-});
-document.addEventListener("DOMContentLoaded", function () {
+
   // Кнопки
   const findCarButton = document.querySelector(".find-car-btn");
   const resetButton = document.querySelector(".reset-btn");
-  const resultContainer = document.getElementById("result");
 
   // Поля формы
   const fields = {
@@ -45,40 +50,20 @@ document.addEventListener("DOMContentLoaded", function () {
     color: document.getElementById("car-color"),
   };
 
-  // Функция отображения блока с результатом
-function showResult(message, type = "success") {
-  // Если результат уже существует, скрываем его с анимацией перед созданием нового
-  if (resultContainer.classList.contains("active")) {
-    hideResult();
+  // Функция отображения результата
+  function showResult(message, type = "success") {
+    resultContainer.textContent = message;
+    resultContainer.className = "result"; // Сбрасываем классы
+    resultContainer.classList.add(type === "error" ? "error" : "success");
+    resultContainer.style.display = "block";
   }
 
-  // Устанавливаем текст и класс в зависимости от типа
-  resultContainer.textContent = message;
-  resultContainer.className = "result"; // Сбрасываем классы
-  resultContainer.classList.add(type === "error" ? "error" : "success", "active");
+  // Скрытие результата
+  function hideResult() {
+    resultContainer.style.display = "none";
+  }
 
-  // Плавное появление нового текста
-  resultContainer.style.visibility = "visible";
-  resultContainer.style.opacity = "1";
-
-  // Через 8 секунд скрываем блок с результатом
-  setTimeout(() => {
-    hideResult();
-  }, 8000); // Время отображения текста
-}
-
-// Функция скрытия блока результата
-
-function hideResult() {
-  resultContainer.classList.add("fade-out");
-  setTimeout(() => {
-    resultContainer.classList.remove("active", "fade-out");
-    resultContainer.style.visibility = "hidden"; // Скрываем текст
-    resultContainer.style.opacity = "0"; // Убираем прозрачность
-  }, 1000); // Время для анимации исчезновения
-}
-
-  // Проверка заполнения полей
+  // Проверка заполнения формы
   function validateForm() {
     let isValid = false;
 
@@ -123,10 +108,10 @@ function hideResult() {
       }
     }
 
-    showResult("Выбор параметров сброшен.");
+    showResult("Выбор параметров сброшен.", "success");
   }
 
-  // Установка ограничений для года и объёма двигателя
+  // Установка ограничений на ввод
   const currentYear = new Date().getFullYear();
   if (fields.yearFrom) {
     fields.yearFrom.min = 1900;
@@ -147,44 +132,44 @@ function hideResult() {
     fields.engineTo.step = 0.1;
   }
 
-  // Привязка событий к кнопкам
+  // Обработчики событий
   findCarButton.addEventListener("click", findCar);
   resetButton.addEventListener("click", resetForm);
-});
-document.addEventListener("DOMContentLoaded", function () {
+
+  // Изначально скрываем результат
+  hideResult();
+
+  // Логика переключения темы
   const themeToggle = document.getElementById("theme-toggle");
   const body = document.body;
 
-  // Устанавливаем сохранённую тему при загрузке
   const savedTheme = localStorage.getItem("theme");
   if (savedTheme === "dark") {
     body.classList.add("dark");
-    themeToggle.textContent = "☀️"; // Иконка для светлой темы
+    themeToggle.textContent = "☀️";
   } else {
-    body.classList.add("light"); // Добавляем светлую тему, если сохранено значение
-    themeToggle.textContent = "🌙"; // Иконка для темной темы
+    body.classList.add("light");
+    themeToggle.textContent = "🌙";
   }
 
-  // Переключение темы
   themeToggle.addEventListener("click", () => {
     const isDark = body.classList.toggle("dark");
     themeToggle.textContent = isDark ? "☀️" : "🌙";
     localStorage.setItem("theme", isDark ? "dark" : "light");
   });
-});
 
-
-
-document.getElementById('scroll-left').addEventListener('click', function() {
-  document.querySelector('.tab-list').scrollBy({
-    left: -200,  // Прокручиваем на 200px влево
-    behavior: 'smooth'
+  // Прокрутка вкладок
+  document.getElementById("scroll-left").addEventListener("click", function () {
+    document.querySelector(".tab-list").scrollBy({
+      left: -200,
+      behavior: "smooth",
+    });
   });
-});
 
-document.getElementById('scroll-right').addEventListener('click', function() {
-  document.querySelector('.tab-list').scrollBy({
-    left: 200,  // Прокручиваем на 200px вправо
-    behavior: 'smooth'
+  document.getElementById("scroll-right").addEventListener("click", function () {
+    document.querySelector(".tab-list").scrollBy({
+      left: 200,
+      behavior: "smooth",
+    });
   });
 });
