@@ -1,210 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CarChoiceAI</title>
-  <link rel="icon" type="image/png" href="LOGO.png">
-   <link id="theme-stylesheet" rel="stylesheet" href="light-theme.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главный сайт</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .container {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #333;
+        }
+
+        p {
+            font-size: 1.2rem;
+            color: #666;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            color: white;
+            background: #007BFF;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .button:hover {
+            background: #0056b3;
+        }
+    </style>
 </head>
-
-<body class="light-theme">
-  <header>
-    <div class="logo-container">
-      <img src="LOGO-round.png" class="logo" alt="CarChoiceAI Logo">
+<body>
+    <div class="container">
+        <h1>Выберите машину мечты!</h1>
+        <a href="indexxx.html" class="button">Перейти на сайт</a>
     </div>
-  </header>
-
-  <div class="animation-container">
-    <img src="car.png" class="car" alt="Car image">
-    <h1 class="site-title">CarChoice<span class="ai">AI</span></h1>
-  </div>
-  
-  <!-- Переключатель темы -->
-  <div class="theme-switcher">
-    <button id="theme-toggle" aria-label="Переключить тему">🌙</button>
-  </div>
-
-  <!-- Основной контент -->
-  <form id="carForm">
-    <div class="tabs">
-      <div class="tab-container">
-        <!-- Кнопка для прокрутки влево -->
-        <button class="scroll-btn left" id="scroll-left">◀️</button>
-        
-        <!-- Контейнер вкладок -->
-        <div class="tab-list">
-          <div class="tab active" data-tab="tab-brand">Марка</div>
-          <div class="tab" data-tab="tab-year">Год выпуска</div>
-          <div class="tab" data-tab="tab-price">Цена</div>
-          <div class="tab" data-tab="tab-gearbox">Коробка передач</div>
-          <div class="tab" data-tab="tab-body">Тип кузова</div>
-          <div class="tab" data-tab="tab-fuel">Топливо</div>
-          <div class="tab" data-tab="tab-engine">Объем двигателя</div>
-          <div class="tab" data-tab="tab-steering">Руль</div>
-          <div class="tab" data-tab="tab-drivetrain">Привод</div>
-          <div class="tab" data-tab="tab-color">Цвет</div>
-        </div>
-      
-        <!-- Кнопка для прокрутки вправо -->
-        <button class="scroll-btn right" id="scroll-right">▶️</button>
-      </div>
-      
-      <section class="tab-content">
-        <!-- Марка -->
-        <div class="tab-panel active" id="tab-brand">
-          <h3>Выберите марку автомобиля</h3>
-          <select name="brand" required>
-            <option value="" disabled selected hidden>Выберите марку</option>
-            <option value="noooo">Не выбрано</option>
-            <option value="BMW">BMW</option>
-            <option value="Mercedes-Benz">Mercedes-Benz</option>
-            <option value="Audi">Audi</option>
-            <option value="Volkswagen">Volkswagen</option>
-            <option value="Tesla">Tesla</option>
-            <option value="Jaguar">Jaguar</option>
-            <option value="Hyundai">Hyundai</option>
-            <option value="Kia">Kia</option>
-            <option value="Land Rover">Land Rover</option>
-            <option value="Volvo">Volvo</option>
-            <option value="Dodge">Dodge</option>
-            <option value="Lexus">Lexus</option>
-            <option value="Cadillac">Cadillac</option>
-            <option value="Chrysler">Chrysler</option>
-            <option value="Mazda">Mazda</option>
-            <option value="Honda">Honda</option>
-            <option value="Nissan">Nissan</option>
-            <option value="Ford">Ford</option>
-            <option value="Chevrolet">Chevrolet</option>
-            <option value="GMC">GMC</option>
-            <option value="Lincoln">Lincoln</option>
-            <option value="Acura">Acura</option>
-            <option value="Porsche">Porsche</option>
-            <option value="Subaru">Subaru</option>
-            <option value="Tesla">Jeep</option>
-            <option value="Ferrari">Ferrari</option>
-            <option value="Lamborghini">Lamborghini</option>
-          </select>
-        </div>
-
-        <!-- Год выпуска -->
-        <div class="tab-panel" id="tab-year">
-          <h3>Выберите год выпуска</h3>
-          <input type="number" id="year-from" placeholder="От (год)" min="1900" max="2024">
-          <input type="number" id="year-to" placeholder="До (год)" min="1900" max="2024">
-        </div>
-
-        <!-- Цена -->
-        <div class="tab-panel" id="tab-price">
-          <h3>Выберите цену</h3>
-          <input type="number" id="price-from" placeholder="Минимальная цена">
-          <input type="number" id="price-to" placeholder="Максимальная цена">
-        </div>
-
-        <!-- Коробка передач -->
-        <div class="tab-panel" id="tab-gearbox">
-          <h3>Выберите тип коробки передач</h3>
-          <select name="transmission" required>
-            <option value="" disabled selected hidden>Выберите коробку</option>
-            <option value="noooo">Не выбрано</option>
-            <option value="Механика">Механика</option>
-            <option value="Автомат">Автомат</option>
-            <option value="Робот">Робот</option>
-          </select>
-        </div>
-
-        <!-- Тип кузова -->
-        <div class="tab-panel" id="tab-body">
-          <h3>Выберите тип кузова</h3>
-          <select name="body" required>
-            <option value="" disabled selected hidden>Выберите кузов</option>
-            <option value="noooo">Не выбрано</option>
-            <option value="Седан">Седан</option>
-            <option value="Кроссовер">Кроссовер</option>
-            <option value="Хэтчбек">Хэтчбек</option>
-            <option value="Купе">Купе</option>
-          </select>
-        </div>
-
-        <!-- Топливо -->
-        <div class="tab-panel" id="tab-fuel">
-          <h3>Выберите тип топлива</h3>
-          <select name="fuel" required>
-            <option value="" disabled selected hidden>Выберите топливо</option>
-            <option value="noooo">Не выбрано</option>
-            <option value="Бензин">Бензин</option>
-            <option value="Дизель">Дизель</option>
-            <option value="Гибрид">Гибрид</option>
-            <option value="Электрический">Электрический</option>
-          </select>
-        </div>
-
-        <!-- Объем двигателя -->
-        <div class="tab-panel" id="tab-engine">
-          <h3>Выберите объем двигателя</h3>
-          <input type="number" id="engine-from" placeholder="От (л)" min="0.1" max="9.9" step="0.1">
-          <input type="number" id="engine-to" placeholder="До (л)" min="0.1" max="9.9" step="0.1">
-        </div>
-
-        <!-- Руль -->
-        <div class="tab-panel" id="tab-steering">
-          <h3>Выберите расположение руля</h3>
-          <select name="steering" required>
-            <option value="" disabled selected hidden>Выберите сторону</option>
-            <option value="noooo">Не выбрано</option>
-            <option value="Левый">Левый</option>
-            <option value="Правый">Правый</option>
-          </select>
-        </div>
-
-        <!-- Привод -->
-        <div class="tab-panel" id="tab-drivetrain">
-          <h3>Выберите тип привода</h3>
-          <select name="drive" required>
-            <option value="" disabled selected hidden>Выберите привод</option>
-            <option value="noooo">Не выбрано</option>
-            <option value="Передний">Передний</option>
-            <option value="Задний">Задний</option>
-            <option value="Полный">Полный</option>
-          </select>
-        </div>
-
-        <!-- Цвет -->
-        <div class="tab-panel" id="tab-color">
-          <h3>Выберите цвет автомобиля</h3>
-          <select name="color" required>
-            <option value="" disabled selected hidden>Выберите цвет</option>
-            <option value="noooo">Не выбрано</option>
-            <option value="Черный">Черный</option>
-            <option value="Белый">Белый</option>
-            <option value="Красный">Красный</option>
-            <option value="Зеленый">Зеленый</option>
-            <option value="Желтый">Желтый</option>
-            <option value="Оранжевый">Оранжевый</option>
-            <option value="Серебристый">Серебристый</option>
-            <option value="Синий">Синий</option>
-          </select>
-        </div>
-      </section>
-    </div>
-    
-
-    <!-- Кнопки -->
-    <div class="buttons">
-      <button type="submit" class="find-car-btn">Найти машину</button>
-      <button type="reset" class="reset-btn">
-        <span class="reset-icon">⭯</span>
-      </button>
-    </div>
-  </form>
-
-
-  <script src="https://bot.jaicp.com/chatwidget/imqYiqkL:f0dc9d640357a59fdf5c7faac6fdd5be291d3c5f/justwidget.js?force=true" async></script>
-
-  <script src="script.js"></script>
-  <script src="car-AI.js"></script>
-  <script src="cars.json"></script>
 </body>
-
 </html>

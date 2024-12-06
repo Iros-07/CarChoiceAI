@@ -689,3 +689,42 @@ body.dark .result {
 .reset-btn {
     background-color: rgba(255, 75, 75, 0.85); /* Сбросить */
 }
+
+.sss {
+  font-size: 5rem; /* Стандартный размер заголовка */
+}
+/*адаптивкааааааааааааааааааааааааааааааааааа*/
+@media (max-width: 768px) {
+  .navigation ul {
+      flex-direction: column;
+  }
+  
+  .sss {
+      font-size: 4rem; /* Уменьшаем размер заголовка для планшетов */
+  }
+}
+
+@media (max-width: 480px) {
+  .sss {
+      font-size: 1.5rem;
+  }
+
+  .section {
+      padding: 1rem;
+  }
+
+  .sss {
+      font-size: 3rem; /* Ещё меньше размер для телефонов */
+  }
+}
+
+.a {
+  text-decoration: none; /* Убираем подчёркивание */
+  color: white; /* Устанавливаем цвет для ссылок */
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+}
+
+.a:hover {
+  background: #1b1991; /* Эффект при наведении */
+}
